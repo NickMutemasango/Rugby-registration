@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Registration Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .form-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .form-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        .form-section h2 {
+            margin-top: 0;
+            color: #2980b9;
+            font-size: 1.3rem;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="tel"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        textarea {
+            min-height: 80px;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .form-row .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 200px;
+            display: block;
+            margin: 0 auto;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .required-field::after {
+            content: " *";
+            color: red;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .form-row .form-group {
+                min-width: 100%;
+                margin-bottom: 15px;
+            }
+            .form-section {
+                padding: 15px;
+            }
+            button {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+      
+    <div class="form-container">
+        <h1>Player Registration Form</h1>
+        <form id="playerForm" action="https://takundac.app.n8n.cloud/webhook-test/player-signup" method="POST">
+            <!-- Personal Information Section -->
+            <div class="form-section">
+                <h2>Personal Information</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName" class="required-field">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName">Middle Name</label>
+                        <input type="text" id="middleName" name="middleName">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" class="required-field">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="knownAs">Known As (Nickname)</label>
+                        <input type="text" id="knownAs" name="knownAs">
+                    </div>
+                    <div class="form-group">
+                        <label for="dob" class="required-field">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nationalId">National ID</label>
+                        <input type="text" id="nationalId" name="nationalId">
+                    </div>
+                    <div class="form-group">
+                        <label for="worldRugbyId">World Rugby ID</label>
+                        <input type="text" id="worldRugbyId" name="worldRugbyId">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="primaryPosition" class="required-field">Primary Position</label>
+                        <select id="primaryPosition" name="primaryPosition" required>
+                            <option value="">Select...</option>
+                            <option value="Prop">Prop</option>
+                            <option value="Hooker">Hooker</option>
+                            <option value="Lock">Lock</option>
+                            <option value="Flanker">Flanker</option>
+                            <option value="Number 8">Number 8</option>
+                            <option value="Scrum-half">Scrum-half</option>
+                            <option value="Fly-half">Fly-half</option>
+                            <option value="Centre">Centre</option>
+                            <option value="Winger">Winger</option>
+                            <option value="Fullback">Fullback</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="secondaryPosition">Secondary Position</label>
+                        <select id="secondaryPosition" name="secondaryPosition">
+                            <option value="">Select...</option>
+                            <option value="Prop">Prop</option>
+                            <option value="Hooker">Hooker</option>
+                            <option value="Lock">Lock</option>
+                            <option value="Flanker">Flanker</option>
+                            <option value="Number 8">Number 8</option>
+                            <option value="Scrum-half">Scrum-half</option>
+                            <option value="Fly-half">Fly-half</option>
+                            <option value="Centre">Centre</option>
+                            <option value="Winger">Winger</option>
+                            <option value="Fullback">Fullback</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="currentClub" class="required-field">Current Club</label>
+                        <input type="text" id="currentClub" name="currentClub" required>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Passport Information Section -->
+            <div class="form-section">
+                <h2>Passport Information</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="passportNumber">Passport Number</label>
+                        <input type="text" id="passportNumber" name="passportNumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="issueDate">Issue Date</label>
+                        <input type="date" id="issueDate" name="issueDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="expiryDate">Expiry Date</label>
+                        <input type="date" id="expiryDate" name="expiryDate">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="placeOfIssue">Place of Issue</label>
+                        <input type="text" id="placeOfIssue" name="placeOfIssue">
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Nationality</label>
+                        <input type="text" id="nationality" name="nationality">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="otherPassports">Other Passports (List numbers and countries)</label>
+                    <textarea id="otherPassports" name="otherPassports" rows="3"></textarea>
+                </div>
+            </div>
+            
+            <!-- Medical Information Section -->
+            <div class="form-section">
+                <h2>Medical Information</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bloodType">Blood Type</label>
+                        <select id="bloodType" name="bloodType">
+                            <option value="">Unknown</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="medicalAidProvider">Medical Aid Provider</label>
+                        <input type="text" id="medicalAidProvider" name="medicalAidProvider">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="doctorName">Doctor Name</label>
+                        <input type="text" id="doctorName" name="doctorName">
+                    </div>
+                    <div class="form-group">
+                        <label for="doctorPhone">Doctor Phone</label>
+                        <input type="tel" id="doctorPhone" name="doctorPhone">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="practiseAddress">Practice Address</label>
+                    <textarea id="practiseAddress" name="practiseAddress" rows="2"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="allergies">Allergies (List all known allergies)</label>
+                    <textarea id="allergies" name="allergies" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="chronicConditions">Chronic Conditions</label>
+                    <textarea id="chronicConditions" name="chronicConditions" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="currentMedications">Current Medications</label>
+                    <textarea id="currentMedications" name="currentMedications" rows="3"></textarea>
+                </div>
+            </div>
+
+            <!-- Next of Kin Section -->
+            <div class="form-section">
+                <h2>Next of Kin Details</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="kinType" class="required-field">Kin Type</label>
+                        <select id="kinType" name="kinType" required>
+                            <option value="">Select...</option>
+                            <option value="Parent">Parent</option>
+                            <option value="Spouse">Spouse</option>
+                            <option value="Sibling">Sibling</option>
+                            <option value="Guardian">Guardian</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="kinFullName" class="required-field">Full Name</label>
+                        <input type="text" id="kinFullName" name="kinFullName" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="kinRelationship" class="required-field">Relationship</label>
+                        <input type="text" id="kinRelationship" name="kinRelationship" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kinPhone" class="required-field">Phone Number</label>
+                        <input type="tel" id="kinPhone" name="kinPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kinAltPhone">Alt. Phone</label>
+                        <input type="tel" id="kinAltPhone" name="kinAltPhone">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="kinEmail" class="required-field">Email</label>
+                        <input type="email" id="kinEmail" name="kinEmail" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="kinAddress" class="required-field">Physical Address</label>
+                    <textarea id="kinAddress" name="kinAddress" rows="3" required></textarea>
+                </div>
+            </div>
+            
+            <div class="form-group" style="text-align: center; margin-top: 30px;">
+                <button type="submit">Submit Registration</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
